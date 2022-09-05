@@ -41,6 +41,12 @@
         </dependency>
 
         <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.10</version>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.29</version>
@@ -50,6 +56,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
+        </dependency>
+
+        <dependency>
+            <groupId>be.atbash.ee.security</groupId>
+            <artifactId>octopus-javafx</artifactId>
+            <version>0.6</version>
         </dependency>
 
     </dependencies>
