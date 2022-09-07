@@ -1,19 +1,19 @@
 package com.example.housemanagementsystem.users;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Setter
+@Getter
 public class User {
     private Integer userID;
-    private Integer apartmentNo;
+    private String apartmentNo;
     private UserType userType;
     private String firstName;
     private String lastName;
     private String password;
     private String email;
-    private Integer phoneNumber;
+    private String phoneNumber;
+
 }

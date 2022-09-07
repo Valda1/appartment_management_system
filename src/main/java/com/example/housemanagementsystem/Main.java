@@ -1,8 +1,5 @@
 package com.example.housemanagementsystem;
 
-import be.atbash.ee.security.octopus.authc.AuthenticationException;
-import be.atbash.ee.security.octopus.javafx.LoginFXMLView;
-import be.atbash.ee.security.octopus.javafx.SecureFXMLApplication;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

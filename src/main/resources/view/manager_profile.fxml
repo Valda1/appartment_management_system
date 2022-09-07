@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Text?>
-<?import be.atbash.ee.security.octopus.javafx.authz.tag.RequiresPermissions?>
+
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.example.housemanagementsystem.users.UserController"
@@ -16,14 +16,8 @@
     <Text fx:id="profileTitleText" text="Welcome to your profile!" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
     <Button onAction="#navigateToScene" id="register_new_owner" text="Register new apartment owner" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-    <userData>
-        <RequiresPermissions value="manager"/>
-    </userData>
-    <Button onAction="#navigateToScene" id="user_info" text="Change user info" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="measurements" text="Submit water meter reading" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="invoices" text="See invoice info" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    <Button onAction="#navigateToScene" id="user_info" text="Change your user info" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
     <Button onAction="#navigateToScene" id="chat" text="See chat" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="voting" text="To vote" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
     <Button onAction="#navigateToScene" id="login" text="Logout" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
 
 </GridPane>

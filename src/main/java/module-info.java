@@ -4,9 +4,6 @@ module com.example.housemanagementsystem {
     requires java.sql;
     requires commons.configuration;
     requires lombok;
-    requires octopus.javafx;
-    requires octopus.core;
-
 
     opens com.example.housemanagementsystem to javafx.fxml;
     exports com.example.housemanagementsystem;
