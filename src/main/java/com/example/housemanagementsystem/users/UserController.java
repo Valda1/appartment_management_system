@@ -4,12 +4,16 @@ import com.example.housemanagementsystem.SceneController;
 import com.example.housemanagementsystem.database.DataRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 
-public class UserController {
+public class UserController  {
+
+    public Text profileTitleText;
+    public Text userInfoTitleText;
+    public Text changeEmailTitleText;
+    public Text changePasswordTitleText;
+    public Text changePhoneNumberTitleText;
 
     @FXML
     private TextField firstNameField;
@@ -20,11 +24,19 @@ public class UserController {
     @FXML
     private TextField apartmentField;
     @FXML
-    private TextField confirmPasswordField;
+    private PasswordField confirmPasswordField;
     @FXML
     private TextField emailField;
     @FXML
     private TextField phoneField;
+    @FXML
+    private PasswordField newPasswordField;
+    @FXML
+    private PasswordField confirmNewPasswordField;
+    @FXML
+    private TextField newPhoneNumberField;
+    @FXML
+    private TextField newEmailField;
 
     UserRepository userRepository = new UserRepository();
 
@@ -36,8 +48,10 @@ public class UserController {
             String password = passwordField.getText();
 
             int userID = this.userRepository.verifyLoginData(firstName, lastName, password);
+            User user = this.userRepository.getUserByID(userID);
             UserType userType =  this.userRepository.checkUserType(userID);
             DataRepository.getInstance().setLoggedInUserID(userID);
+            DataRepository.getInstance().setLoggedInUser(user);
 
             if(userType == UserType.MANAGER){
                 SceneController.changeScene(actionEvent, "manager_profile");
@@ -87,7 +101,7 @@ public class UserController {
     private void validateOwnerRegistrationInfo(User user) throws Exception {
 
         if (!user.getPassword().equals(confirmPasswordField.getText())) throw new Exception("Password does not match!");
-        if (user.getPassword().length() < 6) throw new Exception("Password must be longer than 6 characters!");
+        if (user.getPassword().length() < 6) throw new Exception("Password must contain at least 6 characters!");
         if (user.getFirstName().isEmpty()) throw new Exception("Please provide owner's first name!");
         if (user.getLastName().isEmpty()) throw new Exception("Please provide owner's last name");
         if (user.getPassword().isEmpty()) throw new Exception("Please choose owner's password");
@@ -104,11 +118,180 @@ public class UserController {
         //if(user.getApartmentNo().contains("\\s*")) throw new Exception("Please provide valid apartment number");
         //if(user.getPhoneNumber().contains("\\s*")) throw new Exception("Please provide valid apartment number");
 
-
-
         //MAYBE USE TO LOWER CASE
         //maybe possible to use ... .orElseThrow();
 
+    }
+
+    private void validatePasswordInfo(User user, String password, String newPassword, String confirmNewPassword) throws Exception{
+
+        if (password.isEmpty()) throw new Exception("Please provide your password");
+        if (!user.getPassword().equals(password)) throw new Exception("Password is incorrect!");
+        if (newPassword.length() < 6) throw new Exception("Password must contain at least 6 characters!");
+        if (confirmNewPassword.isEmpty()) throw new Exception("Please confirm your new password");
+        if (!newPassword.equals(confirmNewPassword)) throw new Exception("Password does not match!");
 
     }
+
+    private void validatePhoneNumberChangeInfo(User user, String newPhoneNumber, String password) throws Exception {
+
+        if(newPhoneNumber.isEmpty()) throw new Exception("Provide updated phone number!");
+        if(password.isEmpty()) throw new Exception("Provide your password");
+        if(!user.getPassword().equals(password)) throw new Exception("Password is not correct!");
+
+    }
+
+    private void validateEmailChangeInfo(User user, String newEmail, String password) throws Exception {
+
+        if(newEmail.isEmpty()) throw new Exception("Provide updated e-mail address!");
+        if(password.isEmpty()) throw new Exception("Provide your password");
+        if(!user.getPassword().equals(password)) throw new Exception("Password is not correct!");
+
+    }
+
+    private void validateDeletingOwnerInfo(User user, String firstName, String lastName, String apartmentNo, String password) throws Exception{
+
+        if(firstName.isEmpty()) throw new Exception("Please provide owner's first name!");
+        if(lastName.isEmpty()) throw new Exception("Please provide owner's last name!");
+        if(apartmentNo.isEmpty()) throw new Exception("Please provide owner's apartment number!");
+        if(password.isEmpty()) throw new Exception("Please enter your password!");
+        if(!user.getPassword().equals(password)) throw new Exception("Password is incorrect");
+
+    }
+
+    public void onChangePasswordClick(ActionEvent actionEvent){
+
+        try {
+            String password = passwordField.getText();
+            String newPassword = newPasswordField.getText();
+            String confirmNewPassword = confirmNewPasswordField.getText();
+
+            User user = DataRepository.getInstance().getLoggedInUser();
+            Integer userID = DataRepository.getInstance().getLoggedInUserID();
+
+            this.userRepository.verifyPassword(userID, password);
+            this.validatePasswordInfo(user, password, newPassword, confirmNewPassword);
+            this.userRepository.updatePassword(userID, newPassword);
+
+            UserType userType =  this.userRepository.checkUserType(userID);
+
+            SceneController.showAlert("Password change successful", "You have changed your password successfully!", Alert.AlertType.CONFIRMATION);
+
+            if(userType == UserType.MANAGER){
+                SceneController.changeScene(actionEvent, "manager_profile");
+            }else if(userType == UserType.OWNER){
+                SceneController.changeScene(actionEvent, "owner_profile");
+            }
+
+        }catch (Exception e){
+            SceneController.showAlert("Password change failed!", e.getMessage(), Alert.AlertType.ERROR);
+        }
+
+    }
+
+
+    public void onUpdatePhoneNumberClick(ActionEvent actionEvent) {
+        try{
+            String newPhoneNumber = newPhoneNumberField.getText();
+            String password = passwordField.getText();
+
+            User user = DataRepository.getInstance().getLoggedInUser();
+            Integer userID = DataRepository.getInstance().getLoggedInUserID();
+
+            validatePhoneNumberChangeInfo(user, newPhoneNumber, password);
+            this.userRepository.verifyPassword(userID, password);
+            this.userRepository.updatePhoneNumber(userID, newPhoneNumber);
+
+            UserType userType =  this.userRepository.checkUserType(userID);
+
+            SceneController.showAlert("Phone number change successful", "You have updated your phone number successfully!", Alert.AlertType.CONFIRMATION);
+
+            if(userType == UserType.MANAGER){
+                SceneController.changeScene(actionEvent, "manager_profile");
+            }else if(userType == UserType.OWNER){
+                SceneController.changeScene(actionEvent, "owner_profile");
+            }
+
+
+        }catch (Exception e){
+            SceneController.showAlert("Phone number change failed!", e.getMessage(), Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    public void onUpdateEmailClick(ActionEvent actionEvent) {
+        try{
+            String newEmail = newEmailField.getText();
+            String password = passwordField.getText();
+
+            User user = DataRepository.getInstance().getLoggedInUser();
+            Integer userID = DataRepository.getInstance().getLoggedInUserID();
+
+            validateEmailChangeInfo(user, newEmail, password);
+            this.userRepository.verifyPassword(userID, password);
+            this.userRepository.updateEmailAddress(userID, newEmail);
+
+            UserType userType =  this.userRepository.checkUserType(userID);
+
+            SceneController.showAlert("E-mail address change successful", "You have updated your e-mail address successfully!", Alert.AlertType.CONFIRMATION);
+
+            if(userType == UserType.MANAGER){
+                SceneController.changeScene(actionEvent, "manager_profile");
+            }else if(userType == UserType.OWNER){
+                SceneController.changeScene(actionEvent, "owner_profile");
+            }
+
+        }catch (Exception e){
+            SceneController.showAlert("E-mail address change failed!", e.getMessage(), Alert.AlertType.ERROR);
+        }
+
+
+    }
+
+    public void onDeleteOwnerClick(ActionEvent actionEvent) {
+        try{
+            String firstName = firstNameField.getText();
+            String lastName = lastNameField.getText();
+            String apartmentNo = apartmentField.getText();
+            String password = passwordField.getText();
+
+            User user = DataRepository.getInstance().getLoggedInUser();
+            Integer userID = DataRepository.getInstance().getLoggedInUserID();
+
+            validateDeletingOwnerInfo(user, firstName, lastName, apartmentNo, password);
+            this.userRepository.verifyPassword(userID, password);
+            this.userRepository.deleteOwner(firstName, lastName, apartmentNo);
+
+            UserType userType =  this.userRepository.checkUserType(userID);
+
+            SceneController.showAlert("Deleting owner successful", "You have deleted apartment owner successfully!", Alert.AlertType.CONFIRMATION);
+
+            if(userType == UserType.MANAGER){
+                SceneController.changeScene(actionEvent, "manager_profile");
+            }else if(userType == UserType.OWNER){
+                SceneController.changeScene(actionEvent, "owner_profile");
+            }
+
+        }catch (Exception e){
+            SceneController.showAlert("Deleting apartment owner failed!", e.getMessage(), Alert.AlertType.ERROR);
+        }
+
+    }
+
+    public void onGoBackClick(ActionEvent actionEvent) throws Exception{
+
+            Integer userID = DataRepository.getInstance().getLoggedInUserID();
+
+            UserType userType = this.userRepository.checkUserType(userID);
+
+            if(userType == UserType.MANAGER){
+                SceneController.changeScene(actionEvent, "manager_profile");
+            }else if(userType == UserType.OWNER){
+                SceneController.changeScene(actionEvent, "owner_profile");
+            }
+
+    }
+
+
 }
