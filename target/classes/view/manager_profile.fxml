@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.housemanagementsystem.users.UserController"
+          prefHeight="400.0" prefWidth="600.0">
+
+    <Text fx:id="profileTitleText" text="Welcome to your profile!" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <Button onAction="#navigateToScene" id="register_new_owner" text="Register new apartment owner" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <Button onAction="#navigateToScene" id="delete_owner" text="Delete apartment owner" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <Button onAction="#navigateToScene" id="user_info" text="Edit your user info" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    <Button onAction="#navigateToScene" id="chat" text="Add chat topic" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    <Button onAction="#navigateToScene" id="voting" text="Add voting topic" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    <Button onAction="#navigateToScene" id="login" text="Logout" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+</GridPane>

@@ -6,7 +6,6 @@ import com.example.housemanagementsystem.exceptions.UserNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class UserRepository {
 
@@ -29,15 +28,14 @@ public class UserRepository {
 
         //DBConnectionManager.closeConnection(resultSet, preparedStatement, connection);
 
-        //return userID;
         if (userID != null) return userID;
 
-        throw new UserNotFoundException("User " + firstName + lastName + " not found!");
+        throw new UserNotFoundException("User " + firstName + " " + lastName + " not found!");
 
     }
 
 
-    public UserType checkUserType(Integer userID) throws SQLException{
+    public UserType checkUserType(Integer userID) throws Exception {
         connection = DBConnectionManager.getConnection();
 
         String query = "SELECT userType FROM users WHERE userID = ?;";
@@ -50,7 +48,11 @@ public class UserRepository {
         UserType userType = null;
         if (resultSet.next()) userType = UserType.valueOf(resultSet.getString("userType").toUpperCase());
 
-        return userType;
+        if (userType != null) return userType;
+
+        //throw new Exception("Error occurred! Not possible to find usertype!");
+
+        throw new UserNotFoundException("Unable to find user with id " + userID);
 
 
     }
@@ -76,7 +78,7 @@ public class UserRepository {
 
     }
 
-    public void updatePassword(Integer userID, String password) throws SQLException{
+    public void updatePassword(Integer userID, String password) throws Exception {
         connection = DBConnectionManager.getConnection();
 
         String query = "UPDATE users SET password = ? WHERE userID = ?;";
@@ -85,7 +87,9 @@ public class UserRepository {
         preparedStatement.setString(1, password);
         preparedStatement.setInt(2, userID);
 
-        preparedStatement.executeUpdate();
+        int result = preparedStatement.executeUpdate();
+
+        if (result != 1) throw new Exception("Error occurred! Your password has not been updated!");
 
 
     }
@@ -103,12 +107,9 @@ public class UserRepository {
 
         if (resultSet.next()) password = resultSet.getString("password");
 
-        return password;
+        if (password != null) return password;
 
-        //if (password != null) return password;
-
-        //throw new PasswordNotFoundException("Cannot find password in the database for user with id " + userID);
-
+        throw new Exception("Error occurred! Password has not been verified!");
 
     }
 
@@ -137,13 +138,14 @@ public class UserRepository {
             );
         }
 
-        if (user == null) throw new Exception("Unable to find user with id " + userID);
+        //if (user == null) throw new Exception("Unable to find user with id " + userID);
+        if(user == null) throw new UserNotFoundException("Unable to find user with id " + userID);
         return user;
 
 
     }
 
-    public void updatePhoneNumber(Integer userID, String phoneNumber) throws SQLException {
+    public void updatePhoneNumber(Integer userID, String phoneNumber) throws Exception {
         connection = DBConnectionManager.getConnection();
 
         String query = "UPDATE users SET phoneNumber = ? WHERE userID = ?;";
@@ -152,11 +154,15 @@ public class UserRepository {
         preparedStatement.setString(1, phoneNumber);
         preparedStatement.setInt(2, userID);
 
-        preparedStatement.executeUpdate();
+        int result = preparedStatement.executeUpdate();
+
+        if (result != 1) throw new Exception("Error occurred! Your phone number has not been updated!");
+
+
 
     }
 
-    public void updateEmailAddress(Integer userID, String email) throws SQLException {
+    public void updateEmailAddress(Integer userID, String email) throws Exception {
         connection = DBConnectionManager.getConnection();
 
         String query = "UPDATE users SET email = ? WHERE userID = ?;";
@@ -165,23 +171,29 @@ public class UserRepository {
         preparedStatement.setString(1, email);
         preparedStatement.setInt(2, userID);
 
-        preparedStatement.executeUpdate();
+        int result = preparedStatement.executeUpdate();
+
+        if (result != 1) throw new Exception("Error occurred! Your e-mail address has not been updated!");
 
 
 
     }
 
-    public void deleteOwner(String firstName, String lastName, String apartmentNo) throws SQLException {
+    public void deleteOwner(String firstName, String lastName, String apartmentNo) throws Exception {
         connection = DBConnectionManager.getConnection();
 
-        String query = "DELETE FROM users WHERE firstName = ? && lastName = ? && apartmentNo = ?;";
+        String query = "DELETE FROM users WHERE firstName = ? AND lastName = ? AND apartmentNo = ?;";
 
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, firstName);
         preparedStatement.setString(2, lastName);
         preparedStatement.setString(3, apartmentNo);
 
-        preparedStatement.executeUpdate();
+        int result = preparedStatement.executeUpdate();
+
+        if (result != 1) throw new Exception("Error! Provided information is not valid! Apartment owner has not been deleted!");
+
+
 
     }
 }

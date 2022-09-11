@@ -103,48 +103,49 @@ public class UserController  {
         if (!user.getPassword().equals(confirmPasswordField.getText())) throw new Exception("Password does not match!");
         if (user.getPassword().length() < 6) throw new Exception("Password must contain at least 6 characters!");
         if (user.getFirstName().isEmpty()) throw new Exception("Please provide owner's first name!");
-        if (user.getLastName().isEmpty()) throw new Exception("Please provide owner's last name");
-        if (user.getPassword().isEmpty()) throw new Exception("Please choose owner's password");
-        if (user.getEmail().isEmpty()) throw new Exception("Please provide owner's e-mail address");
-        if(user.getApartmentNo().isEmpty()) throw new Exception("Please choose the number of the apartment");
-        if(Integer.parseInt( user.getApartmentNo()) < 1 || Integer.parseInt( user.getApartmentNo()) > 15) throw new Exception("Please choose valid apartment number (from 1 to 15)");
-        if(user.getPhoneNumber().isEmpty()) throw new Exception("Please provide owner's phone number");
-        if(!user.getApartmentNo().matches("[0-9]*")) throw new Exception("Please provide valid apartment number");
-        if(!user.getPhoneNumber().matches("[0-9]*")) throw new Exception("Please provide valid phone number");
-        if(!user.getFirstName().matches("[a-zA-Z]*")) throw new Exception("Please provide valid first name");
-        if(!user.getLastName().matches("[a-zA-Z]*")) throw new Exception("Please provide valid last name");
-        if(!user.getEmail().matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")) throw new Exception("Please provide valid e-mail address");
+        if (user.getLastName().isEmpty()) throw new Exception("Please provide owner's last name!");
+        if (user.getPassword().isEmpty()) throw new Exception("Please choose owner's password!");
+        if (user.getEmail().isEmpty()) throw new Exception("Please provide owner's e-mail address!");
+        if(user.getApartmentNo().isEmpty()) throw new Exception("Please choose the number of the apartment!");
+        if(Integer.parseInt( user.getApartmentNo()) < 1 || Integer.parseInt( user.getApartmentNo()) > 15) throw new Exception("Please choose valid apartment number (from 1 to 15)!");
+        if(user.getPhoneNumber().isEmpty()) throw new Exception("Please provide owner's phone number!");
+        if(!user.getApartmentNo().matches("[0-9]*")) throw new Exception("Please provide valid apartment number!");
+        if(!user.getPhoneNumber().matches("[0-9]*")) throw new Exception("Please provide valid phone number!");
+        if(!user.getFirstName().matches("[a-zA-Z]*")) throw new Exception("Please provide valid first name!");
+        if(!user.getLastName().matches("[a-zA-Z]*")) throw new Exception("Please provide valid last name!");
+        if(!user.getEmail().matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")) throw new Exception("Please provide valid e-mail address!");
 
         //if(user.getApartmentNo().contains("\\s*")) throw new Exception("Please provide valid apartment number");
         //if(user.getPhoneNumber().contains("\\s*")) throw new Exception("Please provide valid apartment number");
 
         //MAYBE USE TO LOWER CASE
-        //maybe possible to use ... .orElseThrow();
 
     }
 
     private void validatePasswordInfo(User user, String password, String newPassword, String confirmNewPassword) throws Exception{
 
-        if (password.isEmpty()) throw new Exception("Please provide your password");
+        if (password.isEmpty()) throw new Exception("Please provide your password!");
         if (!user.getPassword().equals(password)) throw new Exception("Password is incorrect!");
         if (newPassword.length() < 6) throw new Exception("Password must contain at least 6 characters!");
-        if (confirmNewPassword.isEmpty()) throw new Exception("Please confirm your new password");
+        if (confirmNewPassword.isEmpty()) throw new Exception("Please confirm your new password!");
         if (!newPassword.equals(confirmNewPassword)) throw new Exception("Password does not match!");
 
     }
 
     private void validatePhoneNumberChangeInfo(User user, String newPhoneNumber, String password) throws Exception {
 
-        if(newPhoneNumber.isEmpty()) throw new Exception("Provide updated phone number!");
-        if(password.isEmpty()) throw new Exception("Provide your password");
+        if(newPhoneNumber.isEmpty()) throw new Exception("Please provide updated phone number!");
+        if(!newPhoneNumber.matches("[0-9]*")) throw new Exception("Please provide valid phone number!");
+        if(password.isEmpty()) throw new Exception("Please provide your password!");
         if(!user.getPassword().equals(password)) throw new Exception("Password is not correct!");
 
     }
 
     private void validateEmailChangeInfo(User user, String newEmail, String password) throws Exception {
 
-        if(newEmail.isEmpty()) throw new Exception("Provide updated e-mail address!");
-        if(password.isEmpty()) throw new Exception("Provide your password");
+        if(newEmail.isEmpty()) throw new Exception("Please provide updated e-mail address!");
+        if(!newEmail.matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")) throw new Exception("Please provide valid e-mail address!");
+        if(password.isEmpty()) throw new Exception("Please provide your password!");
         if(!user.getPassword().equals(password)) throw new Exception("Password is not correct!");
 
     }
@@ -154,8 +155,9 @@ public class UserController  {
         if(firstName.isEmpty()) throw new Exception("Please provide owner's first name!");
         if(lastName.isEmpty()) throw new Exception("Please provide owner's last name!");
         if(apartmentNo.isEmpty()) throw new Exception("Please provide owner's apartment number!");
+        if(Integer.parseInt(apartmentNo) < 1 || Integer.parseInt(apartmentNo) > 15) throw new Exception("Please choose valid apartment number (from 1 to 15)!");
         if(password.isEmpty()) throw new Exception("Please enter your password!");
-        if(!user.getPassword().equals(password)) throw new Exception("Password is incorrect");
+        if(!user.getPassword().equals(password)) throw new Exception("Password is incorrect!");
 
     }
 
