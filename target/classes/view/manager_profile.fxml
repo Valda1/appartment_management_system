@@ -1,25 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Text?>
+<GridPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: WHITE;" vgap="10.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.housemanagementsystem.users.UserController">
 
-<GridPane xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.example.housemanagementsystem.users.UserController"
-          prefHeight="400.0" prefWidth="600.0">
+    <Text fx:id="profileTitleText" text="Welcome to your profile!" textAlignment="CENTER" wrappingWidth="101.2744140625" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <font>
+         <Font name="Berlin Sans FB Bold" size="18.0" />
+      </font></Text>
 
-    <Text fx:id="profileTitleText" text="Welcome to your profile!" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+    <Button id="register_new_owner" alignment="CENTER" contentDisplay="CENTER" onAction="#navigateToScene" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: SPRINGGREEN;" text="Register new apartment owner" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets />
+      </GridPane.margin></Button>
+    <Button id="delete_owner" onAction="#navigateToScene" prefHeight="30.0" prefWidth="185.0" style="-fx-background-color: SPRINGGREEN;" text="Delete apartment owner" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect></Button>
+    <Button id="user_info" onAction="#navigateToScene" prefHeight="30.0" prefWidth="139.0" style="-fx-background-color: SPRINGGREEN;" text="Edit your user info" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect></Button>
+    <Button id="chat" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="Add chat topic" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect></Button>
+    <Button id="voting" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="Add voting topic" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect></Button>
+    <Button id="login" alignment="CENTER" contentDisplay="CENTER" onAction="#navigateToScene" style="-fx-background-color: TOMATO;" text="Logout" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow>
+            <color>
+               <Color red="0.09210526198148727" green="0.09210526198148727" blue="0.09210526198148727" />
+            </color></InnerShadow>
+      </effect></Button>
+   <ImageView fx:id="image1" fitHeight="56.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <image>
+         <Image url="@../images/user.jpg" />
+      </image></ImageView>
+   <ImageView fx:id="image2" fitHeight="58.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <image>
+         <Image url="@../images/clipboard.jpg" />
+      </image></ImageView>
+   <Button id="owners_table" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="View users' list" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+      <font>
+         <Font size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+   </Button>
 
-    <Button onAction="#navigateToScene" id="register_new_owner" text="Register new apartment owner" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="delete_owner" text="Delete apartment owner" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="user_info" text="Edit your user info" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="chat" text="Add chat topic" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="voting" text="Add voting topic" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="login" text="Logout" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="229.0" minWidth="-Infinity" prefWidth="214.0" />
+      <ColumnConstraints maxWidth="200.0" minWidth="53.0" prefWidth="98.0" />
+      <ColumnConstraints maxWidth="253.0" minWidth="127.0" prefWidth="212.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <effect>
+      <InnerShadow />
+   </effect>
 
 </GridPane>

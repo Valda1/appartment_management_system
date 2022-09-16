@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Text?>
-<GridPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.housemanagementsystem.users.UserController"
-            prefHeight="400.0" prefWidth="600.0">
+<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.housemanagementsystem.users.UserController">
 
-    <Text fx:id="userInfoTitleText" text="Update your user info" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+    <Text fx:id="userInfoTitleText" text="Update your user info" wrappingWidth="140.2890625" GridPane.columnIndex="2" GridPane.rowIndex="0" />
 
-    <Button onAction="#navigateToScene" id="change_password" text="Change your password" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="change_phone" text="Update your phone number" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="change_email" text="Update your e-mail address" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    <Button id="change_password" onAction="#navigateToScene" text="Change your password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <Button id="change_phone" onAction="#navigateToScene" text="Update your phone number" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <Button id="change_email" onAction="#navigateToScene" text="Update your e-mail address" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-    <Button onAction="#onGoBackClick" GridPane.rowIndex="5" GridPane.columnIndex="1" text="Back"/>
+    <Button onAction="#onGoBackClick" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 
 
 </GridPane>

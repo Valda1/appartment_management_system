@@ -2,10 +2,14 @@ package com.example.housemanagementsystem.users;
 
 import com.example.housemanagementsystem.database.DBConnectionManager;
 import com.example.housemanagementsystem.exceptions.UserNotFoundException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserRepository {
 
@@ -193,7 +197,86 @@ public class UserRepository {
 
         if (result != 1) throw new Exception("Error! Provided information is not valid! Apartment owner has not been deleted!");
 
+    }
+
+    public ObservableList<User> getAllOwnersFromDB() throws Exception{
+        connection = DBConnectionManager.getConnection();
+
+        ObservableList<User> users = FXCollections.observableArrayList();
+
+        String query = "SELECT * FROM users;";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while(resultSet.next()){
+
+            users.add(this.createUserFromResultSet(resultSet));
+
+        }
+
+        System.out.println(users);
+
+            return users;
+
+            /*user.setUserID(resultSet.getInt("userID"));
+            user.setApartmentNo(resultSet.getString("apartmentNo"));
+            user.setUserType(UserType.valueOf(resultSet.getString("userType")));
+            user.setFirstName(resultSet.getString("firstName"));
+            user.setLastName(resultSet.getString("lastName"));
+            user.setPassword(resultSet.getString("password"));
+            user.setEmail(resultSet.getString("email"));
+            user.setPhoneNumber(resultSet.getString("phoneNumber"));
+
+            //owners.add(user);*/
+
+            /*User user = new User(
+                    resultSet.getInt("userID"),
+                    resultSet.getString("apartmentNo"),
+                    UserType.valueOf(resultSet.getString("userType")),
+                    resultSet.getString("firstName"),
+                    resultSet.getString("lastName"),
+                    resultSet.getString("password"),
+                    resultSet.getString("email"),
+                    resultSet.getString("phoneNumber"));
+            owners.add(user);*/
+
+            /*owners.add(new User(resultSet.getInt("userID"),
+                    resultSet.getString("apartmentNo"),
+                    UserType.valueOf(resultSet.getString("userType")),
+                    resultSet.getString("firstName"),
+                    resultSet.getString("lastName"),
+                    resultSet.getString("password"),
+                    resultSet.getString("email"),
+                    resultSet.getString("phoneNumber")));
+            System.out.println(owners);*/
+
+
+        //throw new Exception("Error occurred! Can't return the list!");
 
 
     }
-}
+
+
+
+
+    private User createUserFromResultSet(ResultSet resultSet) throws Exception {
+
+        User user = new User(
+                resultSet.getInt("userID"),
+                resultSet.getString("apartmentNo"),
+                UserType.valueOf(resultSet.getString("userType")),
+                resultSet.getString("firstName"),
+                resultSet.getString("lastName"),
+                resultSet.getString("password"),
+                resultSet.getString("email"),
+                resultSet.getString("phoneNumber")
+        );
+        System.out.println(user);
+
+        return user;
+    }
+
+    }
+
+

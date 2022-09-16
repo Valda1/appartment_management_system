@@ -9,4 +9,6 @@ module com.example.housemanagementsystem {
     exports com.example.housemanagementsystem;
     exports com.example.housemanagementsystem.users;
     opens com.example.housemanagementsystem.users to javafx.fxml;
+
+
 }
