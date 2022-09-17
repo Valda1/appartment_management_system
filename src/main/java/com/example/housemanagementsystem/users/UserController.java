@@ -360,7 +360,7 @@ public class UserController implements Initializable {
 
         }catch (Exception e){
             //SceneController.showAlert("Owners' list load failed", e.getMessage(), Alert.AlertType.ERROR);
-            System.out.println("Some problems with owner's table to fix!");
+            //System.out.println("Some problems with owner's table to fix!");
         }
 
     }

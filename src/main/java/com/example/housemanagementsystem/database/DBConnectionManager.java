@@ -4,6 +4,8 @@ import org.apache.commons.configuration.PropertiesConfiguration;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class DBConnectionManager {
 
@@ -14,7 +16,7 @@ public class DBConnectionManager {
     private static String username;
     private static String connectionUrl;
 
-    private DBConnectionManager(){
+    private DBConnectionManager() {
         updateConnection();
     }
 
@@ -59,5 +61,15 @@ public class DBConnectionManager {
         }
     }*/
 
-    }
+    /*public static void closeDBConnection(PreparedStatement preparedStatement, Connection connection) {
+        try {
+            if (preparedStatement != null) preparedStatement.close();
+            if (connection != null) connection.close();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+
+    }*/
+}
 
