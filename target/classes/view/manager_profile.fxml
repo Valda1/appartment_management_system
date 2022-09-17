@@ -39,14 +39,14 @@
       <effect>
          <InnerShadow />
       </effect></Button>
-    <Button id="chat" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="Add chat topic" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+    <Button id="chat" onAction="#navigateToScene" prefHeight="30.0" prefWidth="215.0" style="-fx-background-color: SPRINGGREEN;" text="Add chat topic" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
       <font>
          <Font size="14.0" />
       </font>
       <effect>
          <InnerShadow />
       </effect></Button>
-    <Button id="voting" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="Add voting topic" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+    <Button id="voting" onAction="#navigateToScene" prefHeight="30.0" prefWidth="179.0" style="-fx-background-color: SPRINGGREEN;" text="Add voting topic" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
       <font>
          <Font size="14.0" />
       </font>
@@ -71,7 +71,7 @@
       <image>
          <Image url="@../images/clipboard.jpg" />
       </image></ImageView>
-   <Button id="owners_table" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="View users' list" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+   <Button id="owners_table" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="View owners' list" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
       <font>
          <Font size="14.0" />
       </font>
@@ -81,9 +81,9 @@
    </Button>
 
    <columnConstraints>
-      <ColumnConstraints maxWidth="229.0" minWidth="-Infinity" prefWidth="214.0" />
+      <ColumnConstraints maxWidth="229.0" minWidth="-Infinity" prefWidth="208.0" />
       <ColumnConstraints maxWidth="200.0" minWidth="53.0" prefWidth="98.0" />
-      <ColumnConstraints maxWidth="253.0" minWidth="127.0" prefWidth="212.0" />
+      <ColumnConstraints maxWidth="253.0" minWidth="127.0" prefWidth="218.0" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
