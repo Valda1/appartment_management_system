@@ -1,10 +1,21 @@
 package com.example.housemanagementsystem.messages;
 
-import java.security.Timestamp;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Message {
-    private Long messageID;
-    private String message;
+    private Integer messageID;
+    private String messageTitle;
+    private String messageStatus;
     private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private Integer commentOnMessageID;
+    private String messageComment;
+    private Integer userID;
+    private Integer apartmentNo;
 }

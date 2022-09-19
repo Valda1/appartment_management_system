@@ -1,10 +1,23 @@
 package com.example.housemanagementsystem.invoices;
 
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.sql.Date;
 
-public class Invoice {
-    private Long invoiceID;
-    private Date issueDate;
-    private Date dueDate;
-    private Double sum;
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Data
+    public class Invoice {
+        private Integer invoiceID;
+        private String invoiceNo;
+        private String invoiceTitle;
+        private String invoiceCompany;
+        private java.sql.Date invoiceIssueDate;
+        private String invoiceDescription;
+        private double invoiceSubTotal;
+        private double invoiceTax;
+        private double invoiceTotalAmount;
+        private String invoiceStatus;
+        private Date invoicePaidOn;
 }

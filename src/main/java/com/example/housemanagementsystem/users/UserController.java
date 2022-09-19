@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import lombok.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +71,11 @@ public class UserController implements Initializable {
     private TableColumn<User, String> emailColumn;
     @FXML
     private TableColumn<User, String> phoneNumberColumn;
+
+    @FXML
+    private RadioButton radioButton1, radioButton2, radioButton3;
+
+    private ToggleGroup toggleGroup;
 
     UserRepository userRepository = new UserRepository();
 
@@ -340,6 +347,7 @@ public class UserController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
             initializeUserTable();
+            //initializeToggleGroup();
         } catch (Exception exception){
             System.out.println("Problem with initialize method");
             exception.printStackTrace();
@@ -362,11 +370,39 @@ public class UserController implements Initializable {
             //SceneController.showAlert("Owners' list load failed", e.getMessage(), Alert.AlertType.ERROR);
             //System.out.println("Some problems with owner's table to fix!");
         }
+    }
+
+    /*@FXML
+    public void initializeToggleGroup(){
+        toggleGroupAssign();
+    }
+
+    public void toggleGroupAssign(){
+        toggleGroup = new ToggleGroup();
+        radioButton1.setToggleGroup(toggleGroup);
+        radioButton2.setToggleGroup(toggleGroup);
+        radioButton3.setToggleGroup(toggleGroup);
 
     }
 
+    @FXML
+    public void getUserRadioButtonChoice(ActionEvent actionEvent) throws Exception {
+        if(radioButton1.isSelected()){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/change_password.fxml"));
+            loader.load();
+            //onChangePasswordClick(actionEvent);
+        }else if(radioButton2.isSelected()){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/change_phone.fxml"));
+            loader.load();
+            //onUpdatePhoneNumberClick(actionEvent);
+        }else if(radioButton3.isSelected()){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/change_email.fxml"));
+            loader.load();
+            //onUpdateEmailClick(actionEvent);
+        }
 
+    }*/
 
-    }
+}
 
 

@@ -8,17 +8,27 @@
 
     <Text fx:id="userInfoTitleText" text="Update your user info" wrappingWidth="140.2890625" GridPane.columnIndex="2" GridPane.rowIndex="0" />
 
-    <Button id="change_password" onAction="#navigateToScene" text="Change your password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-    <Button id="change_phone" onAction="#navigateToScene" text="Update your phone number" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-    <Button id="change_email" onAction="#navigateToScene" text="Update your e-mail address" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    <Button onAction="#navigateToScene" id="change_password" text="Change your password" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <Button onAction="#navigateToScene" id="change_phone" text="Update your phone number" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <Button onAction="#navigateToScene" id="change_email" text="Update your e-mail address" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
-    <Button onAction="#onGoBackClick" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    <!-- <RadioButton fx:id="radioButton1" id="change_password" onAction="#navigateToScene"  text="Change your password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <RadioButton fx:id="radioButton2"  id="change_phone" onAction="#navigateToScene" text="Update your phone number" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <RadioButton fx:id="radioButton3"  id="change_email" onAction="#navigateToScene" text="Update your e-mail address" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+    <Button onAction="#getUserRadioButtonChoice" text="Choose" GridPane.columnIndex="1" GridPane.rowIndex="5" /> -->
+    <Button onAction="#onGoBackClick" text="Back" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+
+
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
