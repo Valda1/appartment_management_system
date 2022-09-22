@@ -91,6 +91,7 @@ public class UserController implements Initializable {
 
             int userID = this.userRepository.verifyLoginData(firstName, lastName, password);
             User user = this.userRepository.getUserByID(userID);
+            //user.getUserType();
             UserType userType = this.userRepository.checkUserType(userID);
             DataRepository.getInstance().setLoggedInUserID(userID);
             DataRepository.getInstance().setLoggedInUser(user);
@@ -222,6 +223,7 @@ public class UserController implements Initializable {
             this.userRepository.verifyPassword(userID, password);
             this.validatePasswordInfo(user, password, newPassword, confirmNewPassword);
             this.userRepository.updatePassword(userID, newPassword);
+            DataRepository.getInstance().setLoggedInUser(this.userRepository.getUserByID(userID));
 
             UserType userType = this.userRepository.checkUserType(userID);
 

@@ -1,27 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Text?>
-<GridPane xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.example.housemanagementsystem.votings.VotingController"
-          prefHeight="400.0" prefWidth="600.0">
+<GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: WHITE;" stylesheets="@../stylesheets/background_1.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.housemanagementsystem.votings.VotingController">
 
-    <Text text="Voting"/>
+    <Text text="Voting" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+      <font>
+         <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+      </font>
+      <GridPane.margin>
+         <Insets top="230.0" />
+      </GridPane.margin></Text>
 
-    <Label text="Enter voting topic ID" GridPane.rowIndex="1" />
-    <TextField fx:id="votingAnswerTitleIDField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-    <Label text="Enter voting answer (Yes / No)" GridPane.rowIndex="2" />
-    <TextField fx:id="votingAnswerField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-    <Button onAction="#onOwnerAnswerClick" GridPane.rowIndex="3" GridPane.columnIndex="1" text="Submit"/>
-
-    <Button onAction="#navigateToScene" id="owner_voting_checkBox" text="Voting Check Box" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="user_read_voting" text="Voting topics" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="owner_profile" GridPane.rowIndex="16" GridPane.columnIndex="1" text="Back to profile"/>
+    <Button id="owner_voting_checkBox" onAction="#navigateToScene" prefHeight="30.0" prefWidth="145.0" style="-fx-background-color: SPRINGGREEN;" text="Active Voting" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets top="20.0" />
+      </GridPane.margin></Button>
+    <Button id="user_read_voting" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="Voting information" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets top="15.0" />
+      </GridPane.margin></Button>
+    <Button id="owner_profile" onAction="#navigateToScene" style="-fx-background-color: ORANGE;" text="Back to profile" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="16">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets top="25.0" />
+      </GridPane.margin></Button>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="500.0" prefWidth="310.0" />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 
 </GridPane>

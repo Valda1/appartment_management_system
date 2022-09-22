@@ -1,32 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.housemanagementsystem.users.UserController">
+<GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: WHITE;" stylesheets="@../stylesheets/background_1.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.housemanagementsystem.users.UserController">
 
-    <Text fx:id="userInfoTitleText" text="Update your user info" wrappingWidth="140.2890625" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+    <Text fx:id="userInfoTitleText" text="What would you like to do?" textAlignment="CENTER" wrappingWidth="163.2890625" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <font>
+         <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+      </font>
+      <GridPane.margin>
+         <Insets top="20.0" />
+      </GridPane.margin></Text>
 
-    <Button onAction="#navigateToScene" id="change_password" text="Change your password" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="change_phone" text="Update your phone number" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-    <Button onAction="#navigateToScene" id="change_email" text="Update your e-mail address" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    <Button id="change_password" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="Change your password" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets bottom="10.0" top="30.0" />
+      </GridPane.margin></Button>
+    <Button id="change_phone" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="Update your phone number" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets bottom="10.0" />
+      </GridPane.margin></Button>
+    <Button id="change_email" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="Update your e-mail address" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets bottom="20.0" />
+      </GridPane.margin></Button>
 
     <!-- <RadioButton fx:id="radioButton1" id="change_password" onAction="#navigateToScene"  text="Change your password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     <RadioButton fx:id="radioButton2"  id="change_phone" onAction="#navigateToScene" text="Update your phone number" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     <RadioButton fx:id="radioButton3"  id="change_email" onAction="#navigateToScene" text="Update your e-mail address" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
     <Button onAction="#getUserRadioButtonChoice" text="Choose" GridPane.columnIndex="1" GridPane.rowIndex="5" /> -->
-    <Button onAction="#onGoBackClick" text="Back" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+    <Button onAction="#onGoBackClick" style="-fx-background-color: ORANGE;" text="Back" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets top="10.0" />
+      </GridPane.margin></Button>
 
 
    <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
+      <ColumnConstraints maxWidth="500.0" prefWidth="250.0" />
+      <ColumnConstraints maxWidth="500.0" prefWidth="300.0" />
+      <ColumnConstraints maxWidth="500.0" prefWidth="250.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints />
+      <RowConstraints maxHeight="500.0" prefHeight="150.0" />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />

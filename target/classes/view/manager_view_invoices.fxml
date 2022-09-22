@@ -1,62 +1,306 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Text?>
-<GridPane xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.example.housemanagementsystem.invoices.InvoiceController"
-          prefHeight="400.0" prefWidth="600.0">
+<GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: WHITE;" stylesheets="@../stylesheets/backfround_2.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.housemanagementsystem.invoices.InvoiceController">
 
-    <Text text="Invoices"/>
+    <Text text="Invoices" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+      <font>
+         <Font name="Berlin Sans FB Demi Bold" size="16.0" />
+      </font>
+      <GridPane.margin>
+         <Insets bottom="10.0" top="30.0" />
+      </GridPane.margin></Text>
 
-    <Label text="Enter New Invoice No" GridPane.rowIndex="1" />
-    <TextField fx:id="invoiceNoField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Enter New Invoice No" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <TextField fx:id="invoiceNoField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <effect>
+         <InnerShadow>
+            <color>
+               <Color red="0.019607843831181526" green="0.43529412150382996" blue="0.10196078568696976" />
+            </color>
+         </InnerShadow>
+      </effect></TextField>
 
-    <Label text="Enter invoice type (Incomes / Expenses)" GridPane.rowIndex="2" />
-    <TextField fx:id="invoiceTitleField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label text="Enter invoice type (Incomes / Expenses)" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <ChoiceBox fx:id="invoiceTitleBox" layoutX="44.0" layoutY="71.0" prefHeight="25.0" prefWidth="191.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin></ChoiceBox>
 
-    <Label text="Enter Company Title" GridPane.rowIndex="3" />
-    <TextField fx:id="invoiceCompanyField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Label text="Enter Company Title" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <TextField fx:id="invoiceCompanyField" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+      <effect>
+         <InnerShadow>
+            <color>
+               <Color red="0.019607843831181526" green="0.43529412150382996" blue="0.10196078568696976" />
+            </color>
+         </InnerShadow>
+      </effect></TextField>
 
-    <Label text="Enter invoice issue date: Example (YYYY-MM-DD)" GridPane.rowIndex="4" />
-    <TextField fx:id="invoiceIssueDateField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Label text="Enter invoice issue date: Example (YYYY-MM-DD)" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <DatePicker fx:id="datePickerIssueDate" layoutX="13.0" layoutY="79.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin></DatePicker>
 
-    <Label text="Enter description" GridPane.rowIndex="5" />
-    <TextField fx:id="invoiceDescriptionField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <Label text="Enter description" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <TextField fx:id="invoiceDescriptionField" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+      <effect>
+         <InnerShadow>
+            <color>
+               <Color red="0.019607843831181526" green="0.43529412150382996" blue="0.10196078568696976" />
+            </color>
+         </InnerShadow>
+      </effect></TextField>
 
-    <Label text="Enter invoice subtotal" GridPane.rowIndex="6" />
-    <TextField fx:id="invoiceSubTotalField" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    <Label text="Enter invoice subtotal" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <TextField fx:id="invoiceSubTotalField" GridPane.columnIndex="1" GridPane.rowIndex="6">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+      <effect>
+         <InnerShadow>
+            <color>
+               <Color red="0.019607843831181526" green="0.43529412150382996" blue="0.10196078568696976" />
+            </color>
+         </InnerShadow>
+      </effect></TextField>
 
-    <Label text="Enter invoice Tax amount" GridPane.rowIndex="7" />
-    <TextField fx:id="invoiceTaxField" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <Label text="Enter invoice Tax amount" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <TextField fx:id="invoiceTaxField" GridPane.columnIndex="1" GridPane.rowIndex="7">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+      <effect>
+         <InnerShadow>
+            <color>
+               <Color red="0.019607843831181526" green="0.43529412150382996" blue="0.10196078568696976" />
+            </color>
+         </InnerShadow>
+      </effect></TextField>
 
-    <Label text="Enter invoice Total amount" GridPane.rowIndex="8" />
-    <TextField fx:id="invoiceTotalAmountField" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+    <Label text="Enter invoice Total amount" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <TextField fx:id="invoiceTotalAmountField" GridPane.columnIndex="1" GridPane.rowIndex="8">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+      <effect>
+         <InnerShadow>
+            <color>
+               <Color red="0.019607843831181526" green="0.43529412150382996" blue="0.10196078568696976" />
+            </color>
+         </InnerShadow>
+      </effect></TextField>
 
-    <Label text="Enter invoice status (Unpaid / Paid)" GridPane.rowIndex="9" />
-    <TextField fx:id="invoiceStatusField" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+    <Label text="Enter invoice status" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <ChoiceBox fx:id="invoiceStatusBox" layoutX="44.0" layoutY="71.0" prefHeight="25.0" prefWidth="191.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin></ChoiceBox>
 
-    <Label text="Enter invoice payment date: Example (YYYY-MM-DD)" GridPane.rowIndex="10" />
-    <TextField fx:id="invoicePaidOnField" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+    <Label text="Enter invoice due date" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <DatePicker fx:id="datePickerInvoiceDueDate" layoutX="13.0" layoutY="79.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin></DatePicker>
 
-    <Button onAction="#onManagerInvoiceCreateClick" GridPane.rowIndex="11" GridPane.columnIndex="1" text="Create"/>
+    <Button onAction="#onManagerInvoiceCreateClick" style="-fx-background-color: SPRINGGREEN;" text="Create" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin></Button>
 
-    <Label text="Enter ID of invoice to edit status" GridPane.rowIndex="12" />
-    <TextField fx:id="invoiceStatusEditIDField" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
-    <Label text="Enter invoice current status" GridPane.rowIndex="13" />
-    <TextField fx:id="invoiceStatusEditField" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
-    <Button onAction="#onManagerInvoiceStatusEdit" GridPane.rowIndex="14" GridPane.columnIndex="1" text="Edit"/>
+    <Label text="Enter ID of invoice to edit status" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <TextField fx:id="invoiceStatusEditIDField" GridPane.columnIndex="1" GridPane.rowIndex="12">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+      <effect>
+         <InnerShadow>
+            <color>
+               <Color red="0.019607843831181526" green="0.43529412150382996" blue="0.10196078568696976" />
+            </color>
+         </InnerShadow>
+      </effect></TextField>
+    <Label text="Enter invoice current status" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <ChoiceBox fx:id="invoiceStatusEditBox" layoutX="44.0" layoutY="71.0" prefHeight="25.0" prefWidth="191.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin></ChoiceBox>
+    <Button onAction="#onManagerInvoiceStatusEdit" style="-fx-background-color: SPRINGGREEN;" text="Edit" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="15">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin></Button>
 
-    <Label text="Enter ID of invoice to delete" GridPane.rowIndex="15" />
-    <TextField fx:id="invoiceIDField" GridPane.columnIndex="1" GridPane.rowIndex="15"/>
-    <Button onAction="#onManagerInvoiceDelete" GridPane.rowIndex="16" GridPane.columnIndex="1" text="Delete"/>
+    <Label text="Enter ID of invoice to delete" GridPane.halignment="RIGHT" GridPane.rowIndex="16">
+      <font>
+         <Font name="System Bold Italic" size="14.0" />
+      </font>
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin></Label>
+    <TextField fx:id="invoiceIDField" GridPane.columnIndex="1" GridPane.rowIndex="16">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+      <effect>
+         <InnerShadow>
+            <color>
+               <Color red="0.019607843831181526" green="0.43529412150382996" blue="0.10196078568696976" />
+            </color>
+         </InnerShadow>
+      </effect></TextField>
+    <Button onAction="#onManagerInvoiceDelete" style="-fx-background-color: SPRINGGREEN;" text="Delete" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="17">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets bottom="5.0" top="5.0" />
+      </GridPane.margin></Button>
 
-    <Button onAction="#navigateToScene" id="user_read_invoices" GridPane.rowIndex="17" GridPane.columnIndex="1" text="View Invoices"/>
+    <Button id="user_read_invoices" onAction="#navigateToScene" style="-fx-background-color: SPRINGGREEN;" text="View Invoices" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="18">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin></Button>
 
-    <Button onAction="#navigateToScene" id="manager_profile" GridPane.rowIndex="18" GridPane.columnIndex="1" text="Back"/>
+    <Button id="manager_profile" onAction="#navigateToScene" style="-fx-background-color: ORANGE;" text="Back to profile" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="19">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+      <effect>
+         <InnerShadow />
+      </effect>
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin></Button>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>
