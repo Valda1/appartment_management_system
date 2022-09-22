@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: WHITE;" stylesheets="@../stylesheets/test_background.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.housemanagementsystem.users.UserController">
+<GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: WHITE;" stylesheets="@../stylesheets/background_1.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.housemanagementsystem.users.UserController">
 
     <Text fx:id="profileTitleText" text="Welcome to your profile!" textAlignment="CENTER" wrappingWidth="143.2744140625" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER">
         <font>
