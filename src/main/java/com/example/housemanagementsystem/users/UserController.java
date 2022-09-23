@@ -110,7 +110,8 @@ public class UserController implements Initializable {
         SceneController.changeScene(actionEvent, source.getId());
     }
 
-    public void onRegisterNewOwnerClick(ActionEvent actionEvent) {
+    @FXML
+    private void onRegisterNewOwnerClick(ActionEvent actionEvent) {
         try {
             User user = new User(
                     null,
@@ -207,7 +208,8 @@ public class UserController implements Initializable {
 
     }
 
-    public void onChangePasswordClick(ActionEvent actionEvent) {
+    @FXML
+    private void onChangePasswordClick(ActionEvent actionEvent) {
 
         try {
             String password = passwordField.getText();
@@ -239,7 +241,8 @@ public class UserController implements Initializable {
     }
 
 
-    public void onUpdatePhoneNumberClick(ActionEvent actionEvent) {
+    @FXML
+    private void onUpdatePhoneNumberClick(ActionEvent actionEvent) {
         try {
             String newPhoneNumber = newPhoneNumberField.getText();
             String password = passwordField.getText();
@@ -269,7 +272,8 @@ public class UserController implements Initializable {
 
     }
 
-    public void onUpdateEmailClick(ActionEvent actionEvent) {
+    @FXML
+    private void onUpdateEmailClick(ActionEvent actionEvent) {
         try {
             String newEmail = newEmailField.getText();
             String password = passwordField.getText();
@@ -298,7 +302,8 @@ public class UserController implements Initializable {
 
     }
 
-    public void onDeleteOwnerClick(ActionEvent actionEvent) {
+    @FXML
+    private void onDeleteOwnerClick(ActionEvent actionEvent) {
         try {
             String firstName = firstNameField.getText();
             String lastName = lastNameField.getText();
@@ -328,7 +333,8 @@ public class UserController implements Initializable {
 
     }
 
-    public void onGoBackClick(ActionEvent actionEvent) throws Exception {
+    @FXML
+    private void onGoBackClick(ActionEvent actionEvent) throws Exception {
 
         Integer userID = DataRepository.getInstance().getLoggedInUserID();
 
@@ -366,7 +372,6 @@ public class UserController implements Initializable {
 
         }catch (Exception e){
             //SceneController.showAlert("Owners' list load failed", e.getMessage(), Alert.AlertType.ERROR);
-            //System.out.println("Some problems with owner's table to fix!");
         }
     }
 
