@@ -25,33 +25,6 @@ PRIMARY KEY(userID),
 FOREIGN KEY(apartmentNo) REFERENCES apartments(apartmentID)
 );
 
-INSERT INTO users (userType, firstName, lastName, password, email, phoneNumber) VALUES ("MANAGER","John", "Smith", "johnsmith", "john@gmail.com", 22763999);
-INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (1, "OWNER", "Valda", "Bimbirule", "valdab", "valda@gmail.com", 22673344);
-INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (2, "OWNER", "Peter", "White", "peterwhite", "peter@inbox.lv", 28555668);
-INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (2, "OWNER", "Marta", "White", "martawhite", "marta@inbox.lv", 22997822);
-INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (3, "OWNER", "Izabella", "Petrova", "izabella", "petrova@mail.com", 28886621);
-INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (4, "OWNER", "David", "Smart", "davidsmart", "david@gmail.com", 68988855);
-INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (5, "OWNER", "Anna", "Liepa", "annaliepa", "anna.liepa@gmail.com", 64422246);
-INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (6, "OWNER", "Maria", "Kowalska", "mariak", "kowalska@mail.net", 22777665);
-INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (6, "OWNER", "Jakub", "Kowalski", "jakubk", "jakub@mail.net", 66234489);
-INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (7, "OWNER", "Anna", "Johnson", "annajohnson", "anna.j@gmail.com", 63335498);
-
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (1, 29.00, 1, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (2, 29.00, 1, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (3, 29.00, 1, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (4, 29.00, 2, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (5, 29.00, 2, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (6, 29.00, 2, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (7, 29.00, 3, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (8, 29.00, 3, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (9, 29.00, 3, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (10, 29.00, 4, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (11, 29.00, 4, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (12, 29.00, 4, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (13, 29.00, 5, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (14, 29.00, 5, 2);
-INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (15, 29.00, 5, 2);
-
 CREATE TABLE IF NOT EXISTS waterMeasurements(
 measurementID int not null AUTO_INCREMENT,
 coldWaterMeasurementCurrent DOUBLE not null,
@@ -108,12 +81,32 @@ invoicePaidOn VARCHAR (100),
 PRIMARY KEY(invoiceID)
 );
 
-SELECT * FROM users;
-SELECT * FROM waterMeasurements;
-SELECT * FROM voting;
-SELECT * FROM messages;
-SELECT * FROM invoices;
+INSERT INTO users (userType, firstName, lastName, password, email, phoneNumber) VALUES ("MANAGER","John", "Smith", "johnsmith", "john@gmail.com", 22763999);
+INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (1, "OWNER", "Valda", "Bimbirule", "valdab", "valda@gmail.com", 22673344);
+INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (2, "OWNER", "Peter", "White", "peterwhite", "peter@inbox.lv", 28555668);
+INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (2, "OWNER", "Marta", "White", "martawhite", "marta@inbox.lv", 22997822);
+INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (3, "OWNER", "Izabella", "Petrova", "izabella", "petrova@mail.com", 28886621);
+INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (4, "OWNER", "David", "Smart", "davidsmart", "david@gmail.com", 68988855);
+INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (5, "OWNER", "Anna", "Liepa", "annaliepa", "anna.liepa@gmail.com", 64422246);
+INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (6, "OWNER", "Maria", "Kowalska", "mariak", "kowalska@mail.net", 22777665);
+INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (6, "OWNER", "Jakub", "Kowalski", "jakubk", "jakub@mail.net", 66234489);
+INSERT INTO users (apartmentNo, userType, firstName, lastName, password, email, phoneNumber) VALUES (7, "OWNER", "Anna", "Johnson", "annajohnson", "anna.j@gmail.com", 63335498);
 
-DELETE FROM users WHERE firstName = 'John' AND lastName = 'Smith' AND apartmentNo = 1;
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (1, 29.00, 1, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (2, 29.00, 1, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (3, 29.00, 1, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (4, 29.00, 2, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (5, 29.00, 2, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (6, 29.00, 2, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (7, 29.00, 3, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (8, 29.00, 3, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (9, 29.00, 3, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (10, 29.00, 4, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (11, 29.00, 4, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (12, 29.00, 4, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (13, 29.00, 5, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (14, 29.00, 5, 2);
+INSERT INTO apartments (apartmentNo, sqm, floorNo, roomCount) VALUES (15, 29.00, 5, 2);
+
 
 
