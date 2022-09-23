@@ -104,7 +104,7 @@ public class MessageController implements Initializable {
             setChoiceBoxDiscussionTitle();
             setChoiceBoxMessageStatus();
         } catch (Exception exception){
-            System.out.println("Problem with discussion data upload");
+            //System.out.println("Problem with discussion data upload");
         }
     }
 
@@ -134,7 +134,7 @@ public class MessageController implements Initializable {
             apartmentNoCol.setCellValueFactory(new PropertyValueFactory<>("apartmentNo"));
             userReadMessagesTable.setItems(this.messageRepository.addMessageToList());
         } catch (Exception e) {
-            System.out.println("Problem at initialize columns");
+            //System.out.println("Problem at initialize columns");
         }
     }
 

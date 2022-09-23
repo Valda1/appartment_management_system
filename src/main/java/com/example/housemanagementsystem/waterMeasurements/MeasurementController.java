@@ -147,7 +147,7 @@ public class MeasurementController implements Initializable{
             apartmentNoCol.setCellValueFactory(new PropertyValueFactory<>("apartmentNo"));
             managerReadMeasurementTable.setItems(this.measurementRepository.addMeasurementToList());
         } catch (Exception exception) {
-            System.out.println("Initialize issue");
+            //System.out.println("Initialize issue");
         }
     }
 

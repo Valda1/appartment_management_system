@@ -136,7 +136,7 @@ public class VotingController implements Initializable {
             votingApartmentIDCol.setCellValueFactory(new PropertyValueFactory<>("apartmentNo"));
             userReadVotingTable.setItems(this.votingRepository.addVotingToList());
         } catch (Exception exception) {
-            System.out.println("Problem at initialize columns");
+            //System.out.println("Problem at initialize columns");
         }
     }
 
@@ -176,7 +176,7 @@ public class VotingController implements Initializable {
             setChoiceBoxVotingStatus();
             setChoiceBoxVotingEditStatus();
         } catch (Exception exception){
-            System.out.println("Problem with voting data initialize");
+            //System.out.println("Problem with voting data initialize");
         }
     }
 

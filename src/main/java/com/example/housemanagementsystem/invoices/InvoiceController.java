@@ -175,7 +175,7 @@ public class InvoiceController implements Initializable {
 
             userReadInvoicesTable.setItems(this.invoiceRepository.addInvoiceToList());
         } catch (Exception exception) {
-            System.out.println("Problem at initialize columns");
+            //System.out.println("Problem at initialize columns");
         }
     }
 
@@ -187,7 +187,7 @@ public class InvoiceController implements Initializable {
             setChoiceBoxInvoiceStatus();
             setChoiceBoxInvoiceStatusEdit();
         } catch (Exception exception) {
-            System.out.println("Problem with invoice data upload");
+            //System.out.println("Problem with invoice data upload");
         }
     }
 
