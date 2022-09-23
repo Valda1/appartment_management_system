@@ -28,7 +28,7 @@
                 <TableColumn fx:id="invoiceTaxCol" prefWidth="90.0" text="Taxes" />
                 <TableColumn fx:id="invoiceTotalAmountCol" prefWidth="90.0" text="Total Amount" />
                 <TableColumn fx:id="invoiceStatusCol" prefWidth="90.0" text="Status" />
-                <TableColumn fx:id="invoicePaidOnCol" prefWidth="90.0" text="Paid on" />
+                <TableColumn fx:id="invoiceDueDateCol" prefWidth="90.0" text="Invoice Due date" />
 
             </columns>
         </TableView>
