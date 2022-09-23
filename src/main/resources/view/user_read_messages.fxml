@@ -21,7 +21,6 @@
                 <TableColumn fx:id="messageIDCol" prefWidth="90.0" text="ID" />
                 <TableColumn fx:id="messageTitleCol" prefWidth="90.0" text="Title" />
                 <TableColumn fx:id="messageStatusCol" prefWidth="90.0" text="Status" />
-                <TableColumn fx:id="commentOnMessageIDCol" prefWidth="90.0" text="Comment on Topic:" />
                 <TableColumn fx:id="messageCommentCol" prefWidth="90.0" text="Comment" />
                 <TableColumn fx:id="createdAtCol" prefWidth="90.0" text="Submit At" />
                 <TableColumn fx:id="userIDCol" prefWidth="90.0" text="User ID" />
