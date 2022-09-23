@@ -32,3 +32,15 @@ Create discussion topics;
 Submit comments on discussion topics;
 
 View discussions on table.
+
+# database.properties file consists of:
+
+database.username=
+
+database.password=
+
+database.host=
+
+database.port=
+
+database.name=
