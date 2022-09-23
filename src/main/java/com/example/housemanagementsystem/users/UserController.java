@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 
 public class UserController implements Initializable {
 
+
     public Text profileTitleText;
     public Text userInfoTitleText;
     public Text changeEmailTitleText;
@@ -71,11 +72,6 @@ public class UserController implements Initializable {
     private TableColumn<User, String> emailColumn;
     @FXML
     private TableColumn<User, String> phoneNumberColumn;
-
-    @FXML
-    private RadioButton radioButton1, radioButton2, radioButton3;
-
-    private ToggleGroup toggleGroup;
 
     UserRepository userRepository = new UserRepository();
 
@@ -143,27 +139,25 @@ public class UserController implements Initializable {
 
     private void validateOwnerRegistrationInfo(User user) throws Exception {
 
-        if (!user.getPassword().equals(confirmPasswordField.getText())) throw new Exception("Password does not match!");
-        if (user.getPassword().length() < 6) throw new Exception("Password must contain at least 6 characters!");
         if (user.getFirstName().isEmpty()) throw new Exception("Please provide owner's first name!");
+        if (!user.getFirstName().matches("[a-zA-Z]*")) throw new Exception("Please provide valid first name!");
         if (user.getLastName().isEmpty()) throw new Exception("Please provide owner's last name!");
+        if (!user.getLastName().matches("[a-zA-Z]*")) throw new Exception("Please provide valid last name!");
         if (user.getPassword().isEmpty()) throw new Exception("Please choose owner's password!");
-        if (user.getEmail().isEmpty()) throw new Exception("Please provide owner's e-mail address!");
+        if (user.getPassword().length() < 6) throw new Exception("Password must contain at least 6 characters!");
+        if (!user.getPassword().equals(confirmPasswordField.getText())) throw new Exception("Password does not match!");
         if (user.getApartmentNo().isEmpty()) throw new Exception("Please choose the number of the apartment!");
+        if (!user.getApartmentNo().matches("[0-9]*")) throw new Exception("Please provide valid apartment number!");
         if (Integer.parseInt(user.getApartmentNo()) < 1 || Integer.parseInt(user.getApartmentNo()) > 15)
             throw new Exception("Please choose valid apartment number (from 1 to 15)!");
+        if (user.getEmail().isEmpty()) throw new Exception("Please provide owner's e-mail address!");
+        if (!user.getEmail().matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$"))
+            throw new Exception("Please provide valid e-mail address!");
         if (user.getPhoneNumber().isEmpty()) throw new Exception("Please provide owner's phone number!");
         if (user.getPhoneNumber().length() < 8)
             throw new Exception("Please provide valid phone number! Phone number must consist of at least 8 digits!");
-        if (!user.getApartmentNo().matches("[0-9]*")) throw new Exception("Please provide valid apartment number!");
         if (!user.getPhoneNumber().matches("[0-9]*")) throw new Exception("Please provide valid phone number!");
-        if (!user.getFirstName().matches("[a-zA-Z]*")) throw new Exception("Please provide valid first name!");
-        if (!user.getLastName().matches("[a-zA-Z]*")) throw new Exception("Please provide valid last name!");
-        if (!user.getEmail().matches("^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$"))
-            throw new Exception("Please provide valid e-mail address!");
 
-        //if(user.getApartmentNo().contains("\\s*")) throw new Exception("Please provide valid apartment number");
-        //if(user.getPhoneNumber().contains("\\s*")) throw new Exception("Please provide valid apartment number");
 
     }
 
@@ -201,8 +195,11 @@ public class UserController implements Initializable {
     private void validateDeletingOwnerInfo(User user, String firstName, String lastName, String apartmentNo, String password) throws Exception {
 
         if (firstName.isEmpty()) throw new Exception("Please provide owner's first name!");
+        if (!firstName.matches("[a-zA-Z]*")) throw new Exception("Please provide valid first name!");
         if (lastName.isEmpty()) throw new Exception("Please provide owner's last name!");
+        if (!lastName.matches("[a-zA-Z]*")) throw new Exception("Please provide valid last name!");
         if (apartmentNo.isEmpty()) throw new Exception("Please provide owner's apartment number!");
+        if (!apartmentNo.matches("[0-9]*")) throw new Exception("Please provide valid apartment number!");
         if (Integer.parseInt(apartmentNo) < 1 || Integer.parseInt(apartmentNo) > 15)
             throw new Exception("Please choose valid apartment number (from 1 to 15)!");
         if (password.isEmpty()) throw new Exception("Please enter your password!");
@@ -349,7 +346,6 @@ public class UserController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
             initializeUserTable();
-            //initializeToggleGroup();
         } catch (Exception exception){
             System.out.println("Problem with initialize method");
             exception.printStackTrace();
@@ -373,37 +369,6 @@ public class UserController implements Initializable {
             //System.out.println("Some problems with owner's table to fix!");
         }
     }
-
-    /*@FXML
-    public void initializeToggleGroup(){
-        toggleGroupAssign();
-    }
-
-    public void toggleGroupAssign(){
-        toggleGroup = new ToggleGroup();
-        radioButton1.setToggleGroup(toggleGroup);
-        radioButton2.setToggleGroup(toggleGroup);
-        radioButton3.setToggleGroup(toggleGroup);
-
-    }
-
-    @FXML
-    public void getUserRadioButtonChoice(ActionEvent actionEvent) throws Exception {
-        if(radioButton1.isSelected()){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/change_password.fxml"));
-            loader.load();
-            //onChangePasswordClick(actionEvent);
-        }else if(radioButton2.isSelected()){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/change_phone.fxml"));
-            loader.load();
-            //onUpdatePhoneNumberClick(actionEvent);
-        }else if(radioButton3.isSelected()){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/change_email.fxml"));
-            loader.load();
-            //onUpdateEmailClick(actionEvent);
-        }
-
-    }*/
 
 }
 

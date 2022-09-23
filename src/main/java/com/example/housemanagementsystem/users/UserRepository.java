@@ -31,8 +31,6 @@ public class UserRepository {
         Integer userID = null;
         if (resultSet.next()) userID = resultSet.getInt("userID");
 
-        //DBConnectionManager.closeConnection(resultSet, preparedStatement, connection);
-
         if (userID != null) return userID;
 
         throw new UserNotFoundException("User " + firstName + " " + lastName + " not found!");
@@ -54,8 +52,6 @@ public class UserRepository {
         if (resultSet.next()) userType = UserType.valueOf(resultSet.getString("userType").toUpperCase());
 
         if (userType != null) return userType;
-
-        //throw new Exception("Error occurred! Not possible to find usertype!");
 
         throw new UserNotFoundException("Unable to find user with id " + userID);
 
@@ -143,7 +139,6 @@ public class UserRepository {
             );
         }
 
-        //if (user == null) throw new Exception("Unable to find user with id " + userID);
         if(user == null) throw new UserNotFoundException("Unable to find user with id " + userID);
         return user;
 
