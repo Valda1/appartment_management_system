@@ -3,7 +3,10 @@
 Apartment house management system helps property manager and apartment owners form easy communication on questions related to property management.
 System allows property manager work more efficiently with information flow, collecting necessary opinions and measurements.
 Management system for the owners can provide necessary information about the house financial situation, and provide his opinion to other members at one's convenience.
-It helps to unite society in a way: less is more! 
+It helps to unite society in a way: less is more!
+
+![APP](https://github.com/Valda1/appartment_management_system/assets/104151972/966bea04-38a5-4674-873c-49e29a7fdf39)
+
 
 # Functionalities:
 
