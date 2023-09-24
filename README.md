@@ -5,7 +5,8 @@ System allows property manager work more efficiently with information flow, coll
 Management system for the owners can provide necessary information about the house financial situation, and provide his opinion to other members at one's convenience.
 It helps to unite society in a way: less is more!
 
-![APP](https://github.com/Valda1/appartment_management_system/assets/104151972/0f0049a5-04ac-4f60-b9c5-558f7376de40) ![APP_1](https://github.com/Valda1/appartment_management_system/assets/104151972/4fa142e7-c642-4fe2-a7b5-fa641cf55eb7)
+![APP](https://github.com/Valda1/appartment_management_system/assets/104151972/0f0049a5-04ac-4f60-b9c5-558f7376de40) ![APP_1](https://github.com/Valda1/appartment_management_system/assets/104151972/4fa142e7-c642-4fe2-a7b5-fa641cf55eb7) ![APP_2](https://github.com/Valda1/appartment_management_system/assets/104151972/86702d2c-613c-44fa-8f67-4c31bd571e82)
+
 
 
 
